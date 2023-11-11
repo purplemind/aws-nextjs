@@ -1,13 +1,14 @@
-version: 0.1
+version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
+      - n 18.18.2
       - npm install
   build:
      commands:
        - npm run build
   post_build:
      commands:
-       - aws s3 cp —recursive ./build s3://www.purplerhapsody.net/
-       - aws cloudfront create-invalidation —distribution-id E1NHUG2DY9M4U4 —path /\*
+       - aws s3 cp --recursive ./.next/server/app s3://aws-nextjs-customresourcestack-1rfvk-s3bucketroot-1efbugrmo1gpp/
+       - aws cloudfront create-invalidation --distribution-id E1NHUG2DY9M4U4 --path /\*

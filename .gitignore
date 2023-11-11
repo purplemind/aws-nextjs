@@ -29,6 +29,7 @@ node_modules/
 .next
 out
 next-env.d.ts
+build
 
 # Nuxt.js build / generate output
 .nuxt
